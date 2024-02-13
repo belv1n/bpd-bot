@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 
 from views.confirm import MemberAccess
+from views.landing import Landing
 
 import os
 from dotenv import load_dotenv
@@ -29,6 +30,7 @@ class Bot(commands.Bot):
         """
         
         self.add_view(MemberAccess())
+        self.add_view(Landing())
 
         for file in os.listdir(f"{os.path.realpath(os.path.dirname(__file__))}/cogs"):
             if file.endswith(".py"):

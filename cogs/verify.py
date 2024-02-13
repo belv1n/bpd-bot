@@ -2,7 +2,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from views.form import BPDForm
+from views.landing import Landing
 
 import traceback
 import sys
@@ -167,14 +167,14 @@ class Verify(commands.Cog):
         open('./channels/log_channel.txt', 'w').close()
         await ctx.send(f'Removed the logging channel')
 
-    @app_commands.command()
-    async def verify(self, interaction: discord.Interaction):
+    @commands.command()
+    async def verify(self, ctx):
 
         """
         Starts verification for BPD server.
         """
-         
-        await interaction.response.send_modal(BPDForm())
+        embed = discord.Embed(description='Click the green button below to verify')
+        await ctx.send(embed=embed, view=Landing())
 
 
 async def setup(bot) -> None:
