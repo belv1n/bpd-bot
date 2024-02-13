@@ -174,7 +174,7 @@ class Verify(commands.Cog):
         """
         Starts verification for BPD server.
         """
-        embed = discord.Embed(description='Click the green button below to verify')
+        embed = discord.Embed(description='Click the green button below to verify', color=discord.Colour.purple())
         await ctx.send(embed=embed, view=Landing())
 
 
