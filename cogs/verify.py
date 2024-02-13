@@ -167,6 +167,7 @@ class Verify(commands.Cog):
         open('./channels/log_channel.txt', 'w').close()
         await ctx.send(f'Removed the logging channel')
 
+    @commands.has_permissions(manage_guild=True) 
     @commands.command()
     async def verify(self, ctx):
 
