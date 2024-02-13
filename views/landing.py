@@ -1,7 +1,7 @@
 import discord
 from discord import app_commands
 
-from form import BPDForm
+from views.form import BPDForm
 
 import traceback
 import datetime
