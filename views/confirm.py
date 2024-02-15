@@ -14,7 +14,7 @@ class MemberAccess(discord.ui.View):
         
         role1 = interaction.guild.get_role(771193551400206348)
         role2 = interaction.guild.get_role(998007488643342386)
-        general = interaction.gulld.get_channel(1097012551679750234)
+        general = interaction.guild.get_channel(1097012551679750234)
         
         member = interaction.guild.get_member(int(interaction.message.content))
         await member.add_roles(role1)
