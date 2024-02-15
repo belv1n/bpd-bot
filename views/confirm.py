@@ -24,7 +24,7 @@ class MemberAccess(discord.ui.View):
 
         await interaction.message.edit(view=self.view)
         await interaction.response.defer()
-        await channel.send(f'<@&931393615249416262>, please say hello to our newest member, {interaction.user.mention}')
+        await general.send(f'<@&931393615249416262>, please say hello to our newest member, {interaction.user.mention}')
 
     @discord.ui.button(label='\U0000274c', style=discord.ButtonStyle.danger, custom_id='kick_button')
     async def kick(self, interaction: discord.Interaction, button: discord.ui.Button):
