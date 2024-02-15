@@ -14,15 +14,17 @@ class MemberAccess(discord.ui.View):
         
         role1 = interaction.guild.get_role(771193551400206348)
         role2 = interaction.guild.get_role(998007488643342386)
-
+        general = interaction.gulld.get_channel(1097012551679750234)
+        
         member = interaction.guild.get_member(int(interaction.message.content))
         await member.add_roles(role1)
         await member.remove_roles(role2)
 
         self.view.add_item(discord.ui.Button(label=f'Confirm requested by {interaction.user.name} at {datetime.datetime.now().strftime("%A, %m/%d/%Y, %H:%M")}', style=discord.ButtonStyle.url, url=interaction.message.jump_url))
 
-        await interaction.response.defer()
         await interaction.message.edit(view=self.view)
+        await interaction.response.defer()
+        await channel.send(f'<@&931393615249416262>, please say hello to our newest member, {interaction.user.mention}')
 
     @discord.ui.button(label='\U0000274c', style=discord.ButtonStyle.danger, custom_id='kick_button')
     async def kick(self, interaction: discord.Interaction, button: discord.ui.Button):
