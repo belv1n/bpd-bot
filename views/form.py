@@ -45,9 +45,9 @@ class BPDForm(discord.ui.Modal, title='BPD Verification Form'):
     async def on_submit(self, interaction: discord.Interaction):
 
         embed = discord.Embed(description=f'- Name/Age/Pronouns: {self.user_about.value}\n- Do you have BPD?: {self.have_bpd.value}\n- Do you know anyone who has BPD?: {self.who_bpd.value}\n- For what reason are you joining us?: {self.why_join.value}\n- What hobbies do you like to do?: {self.user_hobbies.value}', color=discord.Colour.purple())
-        if interaction.user.avatar.url is None:  
+        try:
             embed.set_author(name=interaction.user.name, icon_url=interaction.user.default_avatar.url)
-        else:
+        except:
             embed.set_author(name=interaction.user.name, icon_url=interaction.user.avatar.url)
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/1113234295654469762/1204607864120025178/kts-place.png?ex=65d5597f&is=65c2e47f&hm=0094c55ed296a72e44f1d58324da1b07b790ac6c726cda3aca632f58b119b15e&')
 
