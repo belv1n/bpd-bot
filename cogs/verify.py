@@ -49,6 +49,21 @@ class Verify(commands.Cog):
             print('ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
             traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
 
+
+    @commands.Cog.listener()
+    async def on_member_update(self, before: discord.Member, after: discord.Member):
+
+        """
+        Welcomes the user to the server.
+        """
+
+        general = self.bot.get_channel(1097012551679750234)
+        role = member.guild.get_role(771193551400206348)
+
+        if role not in before.roles and role in after.roles:
+            await general.send(f'<@&931393615249416262>, please say hello to our newest member, {after.mention}')
+
+    
     @commands.has_permissions(manage_guild=True)
     @commands.command()
     async def sync(self, ctx):
