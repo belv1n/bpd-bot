@@ -58,7 +58,7 @@ class Verify(commands.Cog):
         """
 
         general = self.bot.get_channel(1097012551679750234)
-        role = member.guild.get_role(771193551400206348)
+        role = after.guild.get_role(771193551400206348)
 
         if role not in before.roles and role in after.roles:
             await general.send(f'<@&931393615249416262>, please say hello to our newest member, {after.mention}')
